@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Experience &amp; Story｜实战训练第二期学习笔记</title>
+  <style>
+    :root{--ink:#20251f;--muted:#687168;--paper:#fbfaf6;--line:#e7e5dc;--green:#315d4b;--mint:#eaf1eb;--gold:#c28c3d;--blue:#eaf0f4;--shadow:0 12px 40px #27352a0a}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+    .page{max-width:1080px;margin:auto;padding:46px 28px 80px}.hero{position:relative;overflow:hidden;padding:54px 58px;border:1px solid #e7e6dc;border-radius:26px;background:linear-gradient(120deg,#eef3ed 0%,#f6f3e8 100%);box-shadow:var(--shadow)}
+    .eyebrow{color:var(--green);font-size:12px;font-weight:750;letter-spacing:.16em;text-transform:uppercase}.hero h1{margin:12px 0 8px;font-size:clamp(32px,5vw,50px);line-height:1.16;letter-spacing:-.04em}.hero p{max-width:690px;margin:0;color:#515e53;font-size:17px}.hero:after{content:"事";position:absolute;right:55px;top:8px;color:#315d4b0c;font-size:210px;font-weight:800;line-height:1}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{padding:5px 12px;border-radius:99px;background:#ffffffb8;color:#526055;font-size:13px}
+    .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:42px;margin-top:38px}.toc{position:sticky;top:24px;align-self:start;padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow)}.toc strong{display:block;margin-bottom:10px;font-size:13px;letter-spacing:.05em}.toc a{display:block;padding:5px 0;color:var(--muted);font-size:13px;text-decoration:none}.toc a:hover{color:var(--green)}
+    main{min-width:0}.intro{padding:20px 24px;border-left:3px solid var(--green);border-radius:0 12px 12px 0;background:var(--mint);color:#35463a}.section{margin-top:40px;scroll-margin-top:24px}.section h2{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:25px;letter-spacing:-.025em}.num{display:inline-grid;width:34px;height:34px;place-items:center;border-radius:11px;background:var(--green);color:#fff;font-size:14px}.section h3{margin:22px 0 8px;font-size:18px}.muted{color:var(--muted)}
+    .insight{padding:18px 20px;border:1px solid #e2e9df;border-radius:14px;background:#fff}.insight p{margin:4px 0}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:var(--shadow)}table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:13px 15px;border-bottom:1px solid #eeede7;text-align:left;vertical-align:top}th{background:#f1f3ed;color:#49564c;font-size:13px;letter-spacing:.03em}tr:last-child td{border-bottom:0}td:first-child{width:25%;color:var(--green);font-weight:700}td:nth-child(2){width:21%;color:#555f56}.example{display:block;margin-top:4px;color:#364138;font-style:italic}.translation{display:block;color:var(--muted);font-size:14px}
+    .storyline{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.storyline div{padding:13px 14px;border-radius:11px;background:#f1f4ef}.storyline b{display:block;color:var(--green);font-size:14px}.storyline span{color:var(--muted);font-size:13px}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}.card{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:var(--shadow)}.formula{display:inline-block;padding:4px 9px;border-radius:7px;background:var(--blue);color:#315468;font:600 14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.card h3{margin:11px 0 4px}.card p{margin:5px 0;color:var(--muted);font-size:14px}.card .ex{color:var(--ink);font-style:italic}
+    .round{position:relative;margin:17px 0;padding:21px 23px 21px 27px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:var(--shadow)}.round:before{position:absolute;left:0;top:20px;bottom:20px;width:4px;border-radius:4px;background:var(--gold);content:""}.round h3{margin:0 0 5px}.round p{margin:6px 0}.demo{margin-top:12px;padding:15px 17px;border-radius:11px;background:#f7f8f5}.demo p{margin:0}.en{color:#2e4938;font-size:15px;font-style:italic}.checklist{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin:12px 0;padding:0;list-style:none}.checklist li{padding:9px 12px;border-radius:9px;background:#f5f6f1}.checklist li:before{content:"✓";margin-right:9px;color:var(--green);font-weight:800}
+    .steps{counter-reset:item;list-style:none;margin:12px 0;padding:0}.steps li{position:relative;margin:9px 0;padding:12px 15px 12px 48px;border:1px solid var(--line);border-radius:11px;background:#fff}.steps li:before{counter-increment:item;content:counter(item);position:absolute;left:14px;top:11px;display:grid;width:24px;height:24px;place-items:center;border-radius:8px;background:var(--mint);color:var(--green);font-size:12px;font-weight:750}
+    .template{padding:18px 20px;border-radius:13px;background:#243c30;color:#f5f6ef;white-space:pre-line;font:15px/1.9 ui-monospace,SFMono-Regular,Menlo,monospace}.template small{color:#c7d5c8;font:13px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .closing{margin-top:22px;padding:22px 24px;border-radius:16px;background:#253d31;color:#f5f6ef}.closing strong{color:#d9c28d}.closing p{margin:6px 0 0}footer{margin-top:35px;padding-top:17px;border-top:1px solid var(--line);color:#92988f;font-size:12px}
+    @media(max-width:760px){.page{padding:20px 15px 50px}.hero{padding:35px 26px}.hero:after{right:-5px;top:25px;font-size:130px}.layout{display:block;margin-top:22px}.toc{position:static;margin-bottom:24px}.toc nav{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.cards,.checklist{grid-template-columns:1fr}.storyline{grid-template-columns:1fr 1fr}.section h2{font-size:22px}.round{padding:19px 18px 19px 22px}}
+    @media print{body{background:#fff}.page{max-width:none;padding:0}.hero,.card,.round,.table-wrap{box-shadow:none}.layout{display:block}.toc{display:none}.section{break-inside:avoid}.hero{background:#eef3ed}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="hero"><div class="eyebrow">Speaking Practice · Lesson 02</div><h1>Experience &amp; Story</h1><p>把一次真实经历讲完整：从原本的打算，到发生变化、处理问题，再讲最后的结果和自己的回看。</p><div class="meta"><span class="pill">实战训练第二期</span><span class="pill">主题：讲经历与故事</span><span class="pill">练习目标：说清过程，也说出变化</span></div></header>
+  <div class="layout">
+    <aside class="toc"><strong>本页目录</strong><nav><a href="#core">01 这期练什么</a><a href="#vocab">02 语料按功能整理</a><a href="#frames">03 三个句型框架</a><a href="#rounds">04 四轮练习</a><a href="#practice">05 个人练习法</a><a href="#review">06 复盘清单</a></nav></aside>
+    <main>
+      <div class="intro">练习重点是把一件普通小事讲完整，不需要挑一个戏剧性很强的故事。旅行、迟到、临时改计划、第一次尝试、朋友见面或工作学习中的小插曲都可以。听者要能听懂事情怎么开始、哪里变了、你怎么应对，以及最后发生了什么。</div>
+      <section class="section" id="core"><h2><span class="num">01</span>这期练什么</h2>
+        <div class="storyline"><div><b>事情开始</b><span>背景、时间、原来的计划</span></div><div><b>发生变化</b><span>意外、困难或新的选择</span></div><div><b>事情结束</b><span>怎么处理、结果如何、现在怎么看</span></div></div>
+        <p>这期从“我做了什么”推进到“我经历了什么”。只报活动会像清单；讲清原计划、转折和应对，听者才能理解这件事为什么值得讲。</p>
+      </section>
+      <section class="section" id="vocab"><h2><span class="num">02</span>今日语料｜按故事功能记</h2>
+        <p class="muted">把表达和它在故事里的作用一起记，比单独背中文释义更容易在叙述时想起来。</p>
+        <div class="table-wrap"><table><thead><tr><th>故事位置</th><th>语料与意思</th><th>例句</th></tr></thead><tbody>
+          <tr><td>交代时间</td><td><b>a while ago</b><br>前段时间；之前有一次</td><td><span class="example">A while ago, I tried a new café near my office.</span><span class="translation">前段时间，我去了公司附近一家新咖啡馆。</span></td></tr>
+          <tr><td>说明原计划与结果</td><td><b>end up doing...</b><br>最后结果却……；最后变成……</td><td><span class="example">We planned a short walk but ended up exploring the whole neighborhood.</span><span class="translation">我们原本只打算散会儿步，最后却逛了整个街区。</span></td></tr>
+          <tr><td>描述开头状态</td><td><b>at first</b><br>一开始</td><td><span class="example">At first, I wasn't sure what to order.</span><span class="translation">一开始，我不确定该点什么。</span></td></tr>
+          <tr><td>讲意外结果</td><td><b>turn out to be...</b><br>最后发现原来是……</td><td><span class="example">The small café turned out to be surprisingly quiet.</span><span class="translation">最后发现那家小咖啡馆意外地安静。</span></td></tr>
+          <tr><td>引出转折</td><td><b>things didn't go as planned</b><br>事情没有按计划进行</td><td><span class="example">Things didn't go as planned, but we found another way.</span><span class="translation">事情没有按计划进行，不过我们找到了别的办法。</span></td></tr>
+          <tr><td>说明困难</td><td><b>run into a problem</b><br>遇到问题或麻烦</td><td><span class="example">We ran into a problem when the bus didn't arrive.</span><span class="translation">公交车一直没来，我们遇到了麻烦。</span></td></tr>
+          <tr><td>讲如何应对</td><td><b>figure out how to...</b><br>想办法弄明白；找到办法……</td><td><span class="example">We had to figure out how to get to the station.</span><span class="translation">我们得想办法去车站。</span></td></tr>
+          <tr><td>收束结果</td><td><b>in the end</b><br>最后；最终</td><td><span class="example">In the end, we took a taxi and got there on time.</span><span class="translation">最后我们打了车，及时赶到了。</span></td></tr>
+          <tr><td>回看经历</td><td><b>looking back</b><br>现在回头看</td><td><span class="example">Looking back, I'm glad I asked for help.</span><span class="translation">现在回头看，我很庆幸自己当时求助了。</span></td></tr>
+          <tr><td>提炼认识</td><td><b>it taught me that...</b><br>这件事让我明白……</td><td><span class="example">It taught me that a simple backup plan can save a stressful day.</span><span class="translation">这件事让我明白，一个简单的备选方案就能减少很多慌乱。</span></td></tr>
+        </tbody></table></div>
+      </section>
+      <section class="section" id="frames"><h2><span class="num">03</span>三个句型框架</h2><div class="cards">
+        <article class="card"><span class="formula">I was going to..., but...</span><h3>我本来打算……，但……</h3><p>把原计划和实际变化放在同一句里，故事马上有了转折。</p><p class="ex">I was going to stay home, but I ended up going out with my friends.</p></article>
+        <article class="card"><span class="formula">I didn't expect... to...</span><h3>我没想到……会……</h3><p>表达事情和预想不一样，也可以补充当时的反应。</p><p class="ex">I didn't expect the trip to be so tiring.</p></article>
+        <article class="card"><span class="formula">It turned out that...</span><h3>最后发现……</h3><p>用来揭示后来才知道的情况。</p><p class="ex">It turned out that we had booked the wrong hotel.</p></article>
+      </div><div class="insight" style="margin-top:14px"><p><b>讲故事时可顺手检查两个搭配：</b><i>end up</i> 后接动词时用 <i>-ing</i>，例如 <i>ended up staying</i>；<i>figure out how to</i> 后接动词原形，例如 <i>figure out how to get back</i>。</p></div></section>
+      <section class="section" id="rounds"><h2><span class="num">04</span>四轮练习｜从讲清楚到讲自己的</h2>
+        <article class="round"><h3>Round 1 · 先说清楚一次经历</h3><p>选一次没有完全按计划进行的旅行或出行。回答：原本想做什么？后来发生了什么？遇到什么问题？怎么解决？结果如何？尽量用 <i>a while ago</i>、<i>at first</i>、<i>run into a problem</i>、<i>figure out how to</i> 和 <i>in the end</i>。</p><div class="demo"><p class="en">A while ago, I went on a short trip with a friend. At first, everything was going according to plan, but we ran into a problem when we got to the hotel. We couldn't check in, so we had to figure out how to find another place to stay. We were pretty stressed at first, but in the end, everything worked out, and we actually ended up having a really good time.</p></div></article>
+        <article class="round"><h3>Round 2 · 给故事加连接和细节</h3><p>仍然讲同一件事，但避免把每个动作拆成一句。试着交代原因、时间、当时的感受和结果之间的关系。</p><p><b>连接词：</b><i>because</i>、<i>so</i>、<i>which</i>、<i>even though</i>、<i>when</i>、<i>while</i>。</p><div class="demo"><p class="en">A while ago, I went on a short trip with a friend, and I was going to stay in a really nice hotel we'd found online. At first, everything seemed fine, but when we got there, we ran into a problem because they couldn't find our reservation. We were both pretty stressed, especially because it was already late, so we had to figure out how to find somewhere else to stay. It wasn't what we'd planned at all, but in the end, we found a small place nearby, which turned out to be really nice.</p></div></article>
+        <article class="round"><h3>Round 3 · 换到另一个生活场景</h3><p>不再讲旅行。可以讲一次临时改变计划的日子，例如原本准备在家工作或学习，后来朋友联系你，或临时发生别的事。</p><p>重新调用 <i>I was going to...</i>、<i>at first</i>、<i>run into a problem</i>、<i>figure out how to...</i>、<i>end up doing...</i>、<i>turn out to be...</i> 和 <i>in the end</i>。</p><div class="demo"><p class="en">Yesterday, I was going to stay home and get some work done, but a friend called and asked if I wanted to go out for lunch. At first, I wasn't sure because I had quite a lot to do, but I decided to go anyway. The restaurant was full, so we had to figure out how to find somewhere else. We ended up going to a small café nearby, and it turned out to be really good. In the end, I'm glad I changed my plans.</p></div></article>
+        <article class="round"><h3>Round 4 · 讲一件自己的真实经历</h3><p>从真实经历中挑一个小故事，不需要很重大。可以是旅行、临时改计划、迟到、第一次尝试、意外、朋友间的小插曲，或工作学习中的经历。</p><ul class="checklist"><li>至少使用 6 个今日语料。</li><li>至少使用 2 个句型框架。</li><li>讲清原计划和后来发生的变化。</li><li>加入一个具体细节或当时的感受。</li><li>用结果或回看收尾，不强行拔高。</li></ul><div class="demo"><p class="en">A while ago, I was planning to spend the weekend at home because I had a lot of work to do. I was going to stay in, but a friend invited me on a short day trip. At first, I worried I'd fall behind, but I decided to go. The weather got bad, so we had to figure out how to change our plans. We ended up spending the day in a nearby town. It turned out to be fun, even though it was different from what I'd planned. Looking back, I'm glad I went.</p></div></article>
+      </section>
+      <section class="section" id="practice"><h2><span class="num">05</span>把材料练成自己的叙述</h2>
+        <p>下面是适合反复使用的短练习。一次练习控制在十到十五分钟，素材就从真实生活里找，例如一次计划变更、一次没解决的小麻烦，或一次结果出乎意料的工作学习经历。</p>
+        <ol class="steps"><li>先用中文写下六个关键词：背景、计划、转折、应对、结果、回看。不要先写完整英文稿。</li><li>不看语料，先用英语讲一分钟。卡住时先把事件讲明白，再补句型。</li><li>从今日语料里挑六个表达，第二遍重新讲，至少用两个句型框架。</li><li>再换一件不同类型的真实经历，检查自己能不能把表达迁移过去。</li><li>录音听一遍，只改最影响理解的两处：时间顺序不清楚，或关键转折没讲明白。</li></ol>
+        <h3>可以套用的讲述提纲</h3><div class="template">A while ago, ______.
+I was going to ______, but ______.
+At first, I felt / thought ______.
+Then I ran into a problem because ______.
+I had to figure out how to ______.
+In the end, I ended up ______.
+It turned out to be ______.
+Looking back, ______.
+<small>填真实信息即可。每次练习不必把所有句子都用上；优先把事情讲清楚。</small></div>
+      </section>
+      <section class="section" id="review"><h2><span class="num">06</span>复盘时检查什么</h2><div class="insight"><p><b>顺序：</b>听者能不能说出原计划、转折、应对和结果？</p><p><b>细节：</b>有没有一个具体场景或感受，让故事不只是活动清单？</p><p><b>连接：</b><i>because</i>、<i>so</i>、<i>when</i> 有没有说明事件之间的关系？</p><p><b>迁移：</b>换到旅行之外的场景时，这些表达还能不能自然使用？</p><p><b>反思：</b><i>Looking back</i> 后面说的是你真实的看法吗？不需要每件小事都变成大道理。</p></div>
+        <div class="closing"><strong>本期叙事路线：背景 → 原计划 → 意外或问题 → 解决方式 → 最后结果 → 回头看</strong><p>练习目标是让听者听懂经历的变化，也让自己练会讲述过程、反应和结果。之后遇到新的生活场景，仍然可以沿着这条路线组织表达。</p></div>
+      </section>
+      <footer>学习笔记｜根据《第2期｜Experience &amp; Story》整理，并加入个人练习与复盘方法</footer>
+    </main>
+  </div>
+</div>
+</body>
+</html>
