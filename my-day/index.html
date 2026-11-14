@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>My Day｜实战训练第一期学习笔记</title>
+  <style>
+    :root{--ink:#20251f;--muted:#687168;--paper:#fbfaf6;--line:#e7e5dc;--green:#315d4b;--mint:#eaf1eb;--gold:#c28c3d;--blue:#eaf0f4;--white:#fff;--shadow:0 12px 40px #27352a0a}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+    .page{max-width:1080px;margin:auto;padding:46px 28px 80px}.hero{position:relative;overflow:hidden;padding:54px 58px;border:1px solid #e7e6dc;border-radius:26px;background:linear-gradient(120deg,#eef3ed 0%,#f6f3e8 100%);box-shadow:var(--shadow)}
+    .eyebrow{color:var(--green);font-size:12px;font-weight:750;letter-spacing:.16em;text-transform:uppercase}.hero h1{margin:12px 0 8px;font-size:clamp(34px,5vw,54px);line-height:1.15;letter-spacing:-.04em}.hero p{max-width:650px;margin:0;color:#515e53;font-size:17px}.hero:after{content:"日";position:absolute;right:55px;top:8px;color:#315d4b0c;font-size:210px;font-weight:800;line-height:1}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pill{padding:5px 12px;border-radius:99px;background:#ffffffb8;color:#526055;font-size:13px}
+    .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:42px;margin-top:38px}.toc{position:sticky;top:24px;align-self:start;padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow)}.toc strong{display:block;margin-bottom:10px;font-size:13px;letter-spacing:.05em}.toc a{display:block;padding:5px 0;color:var(--muted);font-size:13px;text-decoration:none}.toc a:hover{color:var(--green)}
+    main{min-width:0}.intro{padding:20px 24px;border-left:3px solid var(--green);border-radius:0 12px 12px 0;background:var(--mint);color:#35463a}.section{margin-top:40px;scroll-margin-top:24px}.section h2{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:25px;letter-spacing:-.025em}.num{display:inline-grid;width:34px;height:34px;place-items:center;border-radius:11px;background:var(--green);color:#fff;font-size:14px}.section h3{margin:24px 0 8px;font-size:18px}.muted{color:var(--muted)}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:var(--shadow)}table{width:100%;border-collapse:collapse;min-width:680px}th,td{padding:13px 15px;border-bottom:1px solid #eeede7;text-align:left;vertical-align:top}th{background:#f1f3ed;color:#49564c;font-size:13px;letter-spacing:.03em}tr:last-child td{border-bottom:0}td:first-child{width:23%;color:var(--green);font-weight:700}td:nth-child(2){width:22%;color:#555f56}.example{display:block;margin-top:4px;color:#364138;font-style:italic}.translation{display:block;color:var(--muted);font-size:14px}
+    .flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:17px 18px;border:1px solid #e4e9df;border-radius:14px;background:#fff}.flow span{padding:5px 10px;border-radius:8px;background:#f0f4ee;color:#3d5b47;font-size:14px;font-weight:650}.flow b{color:#b1b9ae;font-weight:500}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px}.card{padding:18px;border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:var(--shadow)}.card .formula{display:inline-block;padding:4px 9px;border-radius:7px;background:var(--blue);color:#315468;font:600 14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}.card h3{margin:11px 0 4px}.card p{margin:5px 0;color:var(--muted);font-size:14px}.card .ex{color:var(--ink);font-style:italic}
+    .round{position:relative;margin:17px 0;padding:22px 23px 22px 27px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:var(--shadow)}.round:before{position:absolute;left:0;top:20px;bottom:20px;width:4px;border-radius:4px;background:var(--gold);content:""}.round h3{margin:0 0 5px}.round p{margin:6px 0}.label{display:inline-block;margin:5px 6px 0 0;padding:3px 9px;border-radius:99px;background:#f6f2e9;color:#80602c;font-size:12px}.demo{margin-top:12px;padding:15px 17px;border-radius:11px;background:#f7f8f5}.demo p{margin:0}.en{color:#2e4938;font-size:15px;font-style:italic}.zh{margin-top:8px!important;color:var(--muted);font-size:14px}
+    .checklist{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin:12px 0;padding:0;list-style:none}.checklist li{padding:9px 12px;border-radius:9px;background:#f5f6f1}.checklist li:before{content:"✓";margin-right:9px;color:var(--green);font-weight:800}
+    .closing{margin-top:26px;padding:22px 24px;border-radius:16px;background:#253d31;color:#f5f6ef}.closing strong{color:#d9c28d}.closing p{margin:6px 0 0}
+    footer{margin-top:35px;padding-top:17px;border-top:1px solid var(--line);color:#92988f;font-size:12px}
+    @media(max-width:760px){.page{padding:20px 15px 50px}.hero{padding:35px 26px}.hero:after{right:-5px;top:25px;font-size:130px}.layout{display:block;margin-top:22px}.toc{position:static;margin-bottom:24px}.toc nav{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.cards,.checklist{grid-template-columns:1fr}.section h2{font-size:22px}.round{padding:19px 18px 19px 22px}}
+    @media print{body{background:#fff}.page{max-width:none;padding:0}.hero,.card,.round,.table-wrap{box-shadow:none}.layout{display:block}.toc{display:none}.section{break-inside:avoid}.hero{background:#eef3ed}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Speaking Practice · Lesson 01</div>
+      <h1>My Day</h1>
+      <p>从描述一天开始练口语：先说真实经历，再逐步补充细节、切换场景，最后讲出自己的生活节奏。</p>
+      <div class="meta"><span class="pill">实战训练第一期</span><span class="pill">主题：描述日常</span><span class="pill">目标：把表达练到能自然调用</span></div>
+    </header>
+    <div class="layout">
+      <aside class="toc"><strong>本页目录</strong><nav>
+        <a href="#why">01 为什么从 My Day 开始</a><a href="#vocab">02 今日语料</a><a href="#frames">03 句型框架</a><a href="#rounds">04 四轮练习</a><a href="#method">05 训练逻辑</a>
+      </nav></aside>
+      <main>
+        <div class="intro">这期的重点不是追求“说得高级”，而是练习把自己经历过的事情用英语顺着说出来。描述一天不需要先想观点或高级内容，只要回忆：几点起床、做了什么、上午和下午在忙什么、晚上如何收尾。</div>
+
+        <section class="section" id="why">
+          <h2><span class="num">01</span>为什么从 My Day 开始</h2>
+          <p>“描述自己的一天”是最不需要构思内容的口语练习。练习材料本来就来自自己的生活，因此可以把注意力放在英语表达和句子连接上。</p>
+          <p class="muted">先记住：我今天几点起床？起床后做了什么？上午、下午、晚上分别在做什么？这些都是真正经历过的事情，也是之后各种口语输出的基础。</p>
+        </section>
+
+        <section class="section" id="vocab">
+          <h2><span class="num">02</span>今日语料｜描述一天</h2>
+          <p class="muted">不用背整篇范文，先准备一批能反复组合的表达。</p>
+          <div class="table-wrap"><table>
+            <thead><tr><th>语料</th><th>中文意思</th><th>例句</th></tr></thead>
+            <tbody>
+              <tr><td>wake up</td><td>醒来；起床</td><td><span class="example">I usually wake up around 8 on weekdays.</span><span class="translation">我平时工作日大概 8 点醒。</span></td></tr>
+              <tr><td>stretch out</td><td>伸展身体；伸个懒腰</td><td><span class="example">I usually stretch out a little before I get out of bed.</span><span class="translation">我通常会在下床前伸展一下身体。</span></td></tr>
+              <tr><td>get ready for the day</td><td>为一天做好准备</td><td><span class="example">I take a shower and get ready for the day.</span><span class="translation">我洗个澡，然后开始为一天做准备。</span></td></tr>
+              <tr><td>grab a quick breakfast</td><td>简单快速地吃个早餐</td><td><span class="example">I usually grab a quick breakfast before I start working.</span><span class="translation">我通常开始工作前简单吃点早餐。</span></td></tr>
+              <tr><td>get into work mode</td><td>进入工作状态</td><td><span class="example">It takes me a while to get into work mode in the morning.</span><span class="translation">我早上需要一会儿才能进入工作状态。</span></td></tr>
+              <tr><td>get started on...</td><td>开始做……</td><td><span class="example">I usually get started on my work around 9.</span><span class="translation">我通常 9 点左右开始工作。</span></td></tr>
+              <tr><td>take a break</td><td>休息一下</td><td><span class="example">I usually take a break around lunchtime.</span><span class="translation">我通常午饭时间会休息一下。</span></td></tr>
+              <tr><td>run a few errands</td><td>办几件杂事；跑几个地方办事</td><td><span class="example">I went out to run a few errands in the afternoon.</span><span class="translation">我下午出去办了几件杂事。</span></td></tr>
+              <tr><td>get some fresh air</td><td>出去透透气</td><td><span class="example">I like to go outside and get some fresh air after working for a few hours.</span><span class="translation">工作几个小时后，我喜欢出去透透气。</span></td></tr>
+              <tr><td>slow down</td><td>放慢节奏</td><td><span class="example">I usually slow down a little in the evening.</span><span class="translation">我晚上通常会让自己的节奏慢下来一点。</span></td></tr>
+              <tr><td>wind down</td><td>放松下来；逐渐进入休息状态</td><td><span class="example">I usually read for a while to wind down before bed.</span><span class="translation">睡前我通常会看一会儿书，让自己慢慢放松下来。</span></td></tr>
+              <tr><td>call it a day</td><td>收工；结束今天的工作</td><td><span class="example">I usually call it a day around six.</span><span class="translation">我通常六点左右就收工了。</span></td></tr>
+            </tbody>
+          </table></div>
+          <h3>描述一天的主线</h3>
+          <div class="flow"><span>wake up</span><b>→</b><span>get ready</span><b>→</b><span>breakfast</span><b>→</b><span>work</span><b>→</b><span>break</span><b>→</b><span>errands</span><b>→</b><span>fresh air</span><b>→</b><span>slow down</span><b>→</b><span>wind down</span><b>→</b><span>call it a day</span></div>
+        </section>
+
+        <section class="section" id="frames">
+          <h2><span class="num">03</span>今日框架｜把一天串起来</h2>
+          <div class="cards">
+            <article class="card"><span class="formula">I've been + doing + lately</span><h3>我最近一直在……</h3><p>描述最近一段时间的生活状态或变化。</p><p class="ex">I've been waking up earlier lately.</p><p>我最近一直起得比较早。</p><p class="ex">I've been trying to slow down a little lately.</p><p>我最近一直在尝试让生活节奏慢一点。</p></article>
+            <article class="card"><span class="formula">I usually + 动词...</span><h3>我通常会……</h3><p>描述习惯或日常安排。</p><p class="ex">I usually get started on my work around nine.</p><p>我通常九点左右开始工作。</p><p class="ex">I usually wind down around ten.</p><p>我通常十点左右开始放松下来。</p></article>
+            <article class="card"><span class="formula">After + doing..., I...</span><h3>做完……之后，我……</h3><p>连接一天中的不同活动。</p><p class="ex">After getting some fresh air, I usually get back to work.</p><p>出去透透气之后，我通常会回去继续工作。</p></article>
+            <article class="card"><span class="formula">By the time..., I...</span><h3>等到……的时候，我已经……</h3><p>补充某个时间点的状态，让表达更有层次。</p><p class="ex">By the time I finish work, I'm usually pretty tired.</p><p>等我结束工作的时候，通常已经挺累了。</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="rounds">
+          <h2><span class="num">04</span>四轮练习｜从模仿到迁移</h2>
+          <article class="round"><h3>Round 1 · 先把一天说出来</h3><p><b>场景：</b>描述一个普通工作日，可以按早上、上午、中午、下午、晚上来讲。</p><p><b>目标：</b>尽量用上今日语料，先把一天说出来，不追求复杂。</p>
+            <div class="demo"><p class="en">I usually wake up around eight and stretch out a little before I get out of bed. Then I take a shower, get ready for the day, and grab a quick breakfast. It usually takes me a while to get into work mode, but once I do, I get started on my work. Around lunchtime, I take a break and sometimes go outside to get some fresh air. In the evening, I try to slow down and wind down a little. I usually call it a day around six or seven.</p><p class="zh">我通常八点左右醒来，下床前伸展一下。然后洗澡、为一天做准备，再简单吃点早餐。我早上需要一点时间进入工作状态，进入状态后就开始工作。午饭时间会休息，有时出去透透气。晚上尽量放慢节奏、放松下来，通常六七点左右收工。</p></div>
+          </article>
+          <article class="round"><h3>Round 2 · 同一天，说得更丰富</h3><p><b>场景：</b>仍然讲普通的一天，不换语料。</p><p><b>目标：</b>给句子加上时间、原因或补充信息，回答“什么时候？为什么？之后怎么样？”</p><div><span class="label">because...</span><span class="label">so...</span><span class="label">but...</span><span class="label">after...</span><span class="label">before...</span><span class="label">which means...</span><span class="label">especially when...</span></div>
+            <div class="demo"><p class="en">I usually wake up around eight, but I've been waking up a little earlier lately because I want to have more time in the morning. I stretch out a little, take a shower, and get ready for the day before I grab a quick breakfast. It usually takes me a while to get into work mode, especially when I didn't sleep well, but once I do, I get started on my work. I usually take a break around lunchtime, and if the weather is nice, I go outside to get some fresh air. By the time I finish work, I'm usually ready to slow down and just have a quiet evening. I might watch something or read for a while to wind down before bed.</p></div>
+          </article>
+          <article class="round"><h3>Round 3 · 换个场景，重新调用语料</h3><p><b>场景：</b>一个比较忙的日子：早上起晚了、没时间吃早餐、事情很多、下午出去办事、晚上终于能休息。</p><p><b>目标：</b>不学新表达，把同一批语料放进不同情境里。</p><p><b>尽量使用：</b>wake up / get ready for the day / get started on / take a break / run a few errands / get some fresh air / slow down / wind down / call it a day</p>
+            <div class="demo"><p class="en">I woke up pretty late today, so I didn't really have time to grab a quick breakfast. I just got ready for the day and got started on my work. It was a pretty busy morning, so I barely had time to take a break. In the afternoon, I went out to run a few errands and get some fresh air, which actually helped me feel better. By the evening, I was exhausted, so I just wanted to slow down, wind down, and call it a day early.</p></div>
+          </article>
+          <article class="round"><h3>Round 4 · 讲你自己真实的一天</h3><p><b>主题：</b>My Day。根据自己的真实生活作答，不再依赖完整情境。</p><ul class="checklist"><li>几点醒？早上第一件事是什么？</li><li>什么时候开始工作或学习？</li><li>中间会不会休息，有没有出门？</li><li>下午通常是什么状态？</li><li>什么时候结束工作，晚上怎么放松？</li><li>最近生活有没有发生变化？</li></ul><p><b>练习要求：</b>尽量使用 6 个以上今日语料，至少使用 2 个今日框架；尝试用 <i>I've been + doing + lately</i> 讲最近的变化，并用 <i>By the time...</i> 描述一个时间点的状态。</p>
+            <div class="demo"><p class="en">I've been waking up a little earlier lately, so I usually wake up around eight and stretch out for a few minutes before I get out of bed. Then I take a shower, get ready for the day, and have some breakfast before I get started on my work. I usually work for a few hours and then take a break, especially if I've been sitting at my desk for too long. Sometimes I'll go outside to get some fresh air or run a few errands.</p><p class="en" style="margin-top:10px">By the time I finish work, I'm usually pretty tired, so I try to slow down in the evening. I might make dinner, watch something, or just listen to music while I wind down. I don't always have a super productive day, but I like having this kind of rhythm because it gives me some structure without making my whole day feel too busy.</p></div>
+          </article>
+        </section>
+
+        <section class="section" id="method">
+          <h2><span class="num">05</span>最后复盘｜把熟悉变成会用</h2>
+          <div class="closing"><strong>一批语料 → Round 1 简单使用 → Round 2 增加细节 → Round 3 换场景重新调用 → Round 4 回到自己的真实生活</strong><p>同一批表达重复使用 3–4 次后，才更容易从“我认识这个表达”变成“我说话时能想得起来”。My Day 只是第一次练习的载体；之后换成旅行、工作、健身、社交或生活选择，也可以沿用这个训练方式。</p></div>
+        </section>
+        <footer>学习笔记｜根据《实战训练第一期：My Day》整理</footer>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
